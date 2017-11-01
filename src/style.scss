@@ -1,0 +1,26 @@
+@import "~bootstrap/scss/bootstrap.scss";
+
+ul.actions {
+  list-style: none;
+  padding: 10px;
+}
+
+.hint {
+  font-size: 90%;
+}
+
+form {
+  max-width: 800px;
+  .form-group {
+    ul.actions {
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+  }
+  label {
+    span.required {
+      font-weight: bold;
+      color: theme-color("danger")
+    }
+  }
+}
