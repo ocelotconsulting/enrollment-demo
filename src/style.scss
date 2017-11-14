@@ -24,3 +24,28 @@ form {
     }
   }
 }
+
+.inbox {
+  li.message {
+    .header, a.title, .body {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .header {
+      span.date {
+        display: inline-block;
+        width: 210px;
+      }
+      &.unread {
+        span.date, a.title {
+          font-weight: bold;
+        }
+      }
+    }
+    .body {
+      font-size: 90%;
+      color: #777;
+    }
+  }
+}
