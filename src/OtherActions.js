@@ -3,7 +3,7 @@ import React from 'react'
 const OtherActions = () =>
   <div className='card select-enrollment-types' style={{width: '20rem'}}>
     <div className='card-body'>
-      <h5 className='card-title'>Other Services</h5>
+      <h5 className='card-title'>Other services</h5>
       <hr/>
       <ul className='actions'>
         <li>

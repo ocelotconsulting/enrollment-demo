@@ -4,6 +4,8 @@ import SelectPrograms from './SelectPrograms'
 import OtherActions from './OtherActions'
 import EnrollmentForm from './EnrollmentForm'
 import Inbox from './Inbox'
+import Help from './Help'
+import Claims from './Claims'
 
 export default class App extends PureComponent {
   constructor (...args) {
@@ -15,6 +17,8 @@ export default class App extends PureComponent {
 
   render () {
     const onLogIn = () => this.setState({userName: 'Jane Provider', newMessageCount: 1, page: 'home'})
+
+    const navigateTo = page => this.setState({page})
 
     const getContent = () => {
       if (this.state.page === 'providers') {
@@ -34,6 +38,10 @@ export default class App extends PureComponent {
         )
       } else if (this.state.page === 'enrollment') {
         return <EnrollmentForm/>
+      } else if (this.state.page === 'claims') {
+        return <Claims/>
+      } else if (this.state.page === 'help') {
+        return <Help/>
       } else {
         return (
           <div>
@@ -54,7 +62,8 @@ export default class App extends PureComponent {
 
     return (
       <div>
-        <Navbar onLogIn={onLogIn} userName={this.state.userName} newMessageCount={this.state.newMessageCount}/>
+        <Navbar onLogIn={onLogIn} page={this.state.page} userName={this.state.userName}
+                newMessageCount={this.state.newMessageCount} navigateTo={navigateTo}/>
         <div className='p-4'>
           {getContent()}
         </div>

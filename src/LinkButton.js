@@ -10,8 +10,8 @@ const preventDefaultAnd = doThis =>
   }
 
 
-const LinkButton = ({className, onClick, children}) =>
-  <a href='#' className={className} onClick={preventDefaultAnd(onClick)} style={{color: 'white'}}>
+const LinkButton = ({className, onClick, children, style}) =>
+  <a href='#' className={className} onClick={preventDefaultAnd(onClick)} style={style}>
     {children}
   </a>
 
