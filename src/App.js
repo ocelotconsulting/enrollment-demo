@@ -6,12 +6,19 @@ import EnrollmentForm from './EnrollmentForm'
 import Inbox from './Inbox'
 import Help from './Help'
 import Claims from './Claims'
+import ManageUsers from './ManageUsers'
+import SearchUsers from './SearchUsers'
+
+const getParameterByName = (name, defaultValue = 'providers') => {
+  const match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search)
+  return match ? decodeURIComponent(match[1].replace(/\+/g, ' ')) : defaultValue
+}
 
 export default class App extends PureComponent {
   constructor (...args) {
     super(...args)
     this.state = {
-      page: 'providers'
+      page: getParameterByName('page')
     }
   }
 
@@ -42,7 +49,11 @@ export default class App extends PureComponent {
         return <Claims/>
       } else if (this.state.page === 'help') {
         return <Help/>
-      } else {
+      } else if (this.state.page === 'manage-users') {
+        return <ManageUsers/> 
+      } else if (this.state.page === 'search-users') {
+        return <SearchUsers/> 
+      }else {
         return (
           <div>
             <h4>
